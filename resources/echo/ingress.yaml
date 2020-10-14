@@ -1,0 +1,24 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: echo-ingress
+  labels:
+    app: echo
+  # annotations:
+  #   kubernetes.io/tls-acme: "true"
+spec:
+  # tls:
+  #   - hosts:
+  #     - echo.arthurbdiniz.com
+  #     secretName: echo-letsencrypt-prod-crt
+  rules:
+  # - host: echo.arthurbdiniz.com
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: echo-service
+            port:
+              number: 80
