@@ -1,0 +1,6 @@
+ingress:
+    enabled: true
+    hosts: [localhost]
+
+persistence:
+    enabled: true
